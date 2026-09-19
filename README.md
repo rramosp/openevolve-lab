@@ -1,5 +1,7 @@
 # OpenEvolve Lab
 
+A hands-on lab for exploring LLM-guided evolutionary search with **OpenEvolve** (an open-source implementation of DeepMind's AlphaEvolve). You will learn how MAP-Elites, island populations, and evaluator feedback work together to evolve code and prompts automatically across tasks such as **function minimization**, **symbolic regression**, and **prompt optimization**.
+
 ![symbolic regression](imgs/symreg.png)
 
 ![prompt optimization](imgs/promptopt.png)
