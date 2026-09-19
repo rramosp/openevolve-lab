@@ -120,3 +120,5 @@ _Suggestion_: Use this script to run openevolve
                              ${OPENEVOLVE_CONFIG_BASEDIR}/evaluator.py \
                              --config ${OPENEVOLVE_CONFIG_BASEDIR}/config.yaml \
                              --iterations 10
+
+Use your coding assistant to debug any issues you might face. For instance, I encountered that with `MatSci18` the solution was not actually evolving stalling at a very large negative score. See again,  [my conversation](conversation.md) to see how I addressed this.

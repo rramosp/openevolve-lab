@@ -1,0 +1,72 @@
+# OpenEvolve Configuration for Prompt Optimization Lab
+# Works out of the box with any OpenAI-compatible API key:
+#   export OPENAI_API_KEY="your-api-key"
+
+max_iterations: 30
+checkpoint_interval: 5
+random_seed: 42
+diff_based_evolution: true
+max_code_length: 12000
+
+# Evolutionary Mutator LLM Configuration (uses OpenAI-compatible endpoint)
+llm:
+  models:
+    - name: "gemini-3.5-flash"
+      weight: 0.7
+    - name: "gemini-3.5-flash-lite"
+      weight: 0.3
+  api_base: "https://generativelanguage.googleapis.com/v1beta/openai/"
+  api_key: ${OPENAI_API_KEY}
+  temperature: 0.7
+  top_p: 0.95
+  max_tokens: 4096
+  timeout: 60
+  retries: 3
+  retry_delay: 3
+
+# Meta-Prompt Configuration (How OpenEvolve instructs the mutating LLM)
+prompt:
+  system_message: |
+    You are an expert prompt engineer and NLP evaluation scientist.
+    Your objective is to evolve a Python prompt-builder module (`SYSTEM_PROMPT` and `build_messages(ticket_text)`)
+    that maximizes structured extraction and multi-label classification accuracy on tricky enterprise support tickets.
+
+    Carefully inspect the `failure_cases_report` and `category_accuracy_summary` artifacts from previous iterations!
+    They reveal the EXACT tickets and fields where the target model failed.
+
+    Key prompt engineering levers you can evolve inside `# EVOLVE-BLOCK-START ... # EVOLVE-BLOCK-END`:
+    1. Explicit Taxonomy Definitions: List the exact allowed `intent_labels` and define precise inclusion/exclusion rules.
+    2. Sarcasm & Tone Calibration: Warn the model that sarcastic praise ("10/10 engineering", "huge thank you") during an outage or data loss is `critical_negative` sentiment and `P0` urgency.
+    3. Multi-Intent Completeness: Instruct the model to identify ALL applicable intents in compound tickets (e.g., security incident + refund request).
+    4. Negation & Resolved Filtering: Instruct the model NOT to trigger `outage` or `billing_dispute` when a user explicitly states the issue was a false alarm or already resolved.
+    5. Entity Extraction Precision: Specify when `monetary_amount_usd` should be the disputed/refunded discrepancy vs total, ensure numeric float output (not strings with '$'), and use JSON `null` when absent.
+    6. Few-Shot Demonstrations: Add high-signal `user`/`assistant` example pairs in `build_messages(ticket_text)` demonstrating tricky edge cases.
+    7. Raw JSON Output Enforcement: Forbid markdown code fences (```json) so the output parses cleanly.
+  num_top_programs: 3
+  num_diverse_programs: 2
+  include_artifacts: true
+  max_artifact_bytes: 16384
+
+# MAP-Elites & Island Database Configuration
+database:
+  in_memory: true
+  population_size: 100
+  archive_size: 40
+  num_islands: 3
+  migration_interval: 10
+  migration_rate: 0.15
+  # MAP-Elites maintains the best prompt for every (prompt_char_length, few_shot_count) cell!
+  feature_dimensions:
+    - "prompt_char_length"
+    - "few_shot_count"
+  feature_bins:
+    prompt_char_length: 8
+    few_shot_count: 5
+
+# Evaluator Configuration
+evaluator:
+  timeout: 120
+  parallel_evaluations: 2
+  cascade_evaluation: true
+  cascade_thresholds:
+    - 0.40

@@ -1323,3 +1323,60 @@ Evaluation Results:
 
 ---
 
+## Turn 15
+
+### User
+what is MAP-Elites quality-diversity search
+
+### Assistant
+**MAP-Elites** (*Multi-dimensional Archive of Phenotypic Elites*, introduced by Mouret & Clune in 2015) is a **Quality-Diversity (QD)** evolutionary algorithm.
+
+Whereas traditional optimization searches for a **single global optimum** ($x^* = \arg\max_x f(x)$), Quality-Diversity search aims to find a **collection of high-performing solutions that span a diverse space of behavioral or structural characteristics**.
+
+---
+
+### 1. Core Idea: Discretizing Behavior Space into a Grid of Niches
+
+In MAP-Elites, every candidate solution $x$ is evaluated along two orthogonal axes:
+1. **Quality (Fitness) $f(x) \in \mathbb{R}$**: How well the solution solves the task (e.g., `combined_score`).
+2. **Feature / Behavior Descriptor $\mathbf{b}(x) \in \mathbb{R}^k$**: A $k$-dimensional vector of measurable traits describing *how* the solution behaves or is structured (for example, code complexity, length, diversity, memory footprint, or latency).
+
+The algorithm partitions the continuous feature space $\mathbb{R}^k$ into a **discretized $k$-dimensional grid of cells (niches)**:
+* Each cell $(c_1, c_2, \dots, c_k)$ stores **at most one solution**: the single highest-fitness individual (*elite*) discovered so far whose feature descriptor falls into that cell.
+* **Local Competition Rule**:
+  When a new candidate solution $x_{\text{new}}$ is generated:
+  1. Compute its fitness $f(x_{\text{new}})$ and its grid cell coordinates $\mathbf{c} = \text{discretize}(\mathbf{b}(x_{\text{new}}))$.
+  2. **If cell $\mathbf{c}$ is empty**: $x_{\text{new}}$ occupies the cell immediately, regardless of how low its fitness is.
+  3. **If cell $\mathbf{c}$ is already occupied by $x_{\text{old}}$**: $x_{\text{new}}$ replaces $x_{\text{old}}$ **if and only if** $f(x_{\text{new}}) > f(x_{\text{old}})$.
+
+---
+
+### 2. Why MAP-Elites Outperforms Pure Objective Optimization
+
+Pure objective-driven search frequently suffers from **premature convergence** to deceptive local optima: if a novel algorithmic idea initially scores worse than an already-tuned baseline, pure elitist selection discards it immediately.
+
+MAP-Elites solves this by **protecting stepping stones**:
+* A structurally novel or more complex program competes **only against other programs in its own niche (cell)**, not against the global best program.
+* Once a niche is populated, future parent sampling can draw from diverse occupied cells across the grid, enabling cross-pollination (via mutations and inspirations) between distinct algorithmic families.
+
+---
+
+### 3. How MAP-Elites Is Implemented in OpenEvolve
+
+In OpenEvolve ([`openevolve/database.py`](file:///usr/local/google/home/raulramos/projects/openevolve-lab/openevolve/openevolve/database.py)), MAP-Elites is combined with an **Island Model**:
+
+1. **Per-Island Feature Grids (`self.island_feature_maps`)**:
+   * Each island maintains its own independent MAP-Elites grid (`self.island_feature_maps[island_idx]`).
+2. **Feature Dimensions & Discretization ([`_calculate_feature_coords`](file:///usr/local/google/home/raulramos/projects/openevolve-lab/openevolve/openevolve/database.py#L846-L885))**:
+   * Configured via `database.feature_dimensions` (defaulting to `["complexity", "diversity"]`) and `database.feature_bins` (defaulting to `10` bins per dimension, i.e., a $10 \times 10 = 100$-cell grid per island).
+   * Continuous feature values are dynamically min-max scaled and binned into integer coordinates $c_i \in \{0, \dots, B - 1\}$.
+   * You can also pass custom domain-specific feature metrics from your `evaluator.py` (any metric name listed in `feature_dimensions`).
+3. **Cell Placement & Elite Replacement ([`ProgramDatabase.add`](file:///usr/local/google/home/raulramos/projects/openevolve-lab/openevolve/openevolve/database.py#L276-L315))**:
+   * When a child program is evaluated, OpenEvolve computes its cell key (e.g., `{'complexity': 9, 'diversity': 5}`).
+   * If the cell is empty, the log records:
+     `New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}`
+   * If the cell is occupied and the child has higher fitness ([`_is_better`](file:///usr/local/google/home/raulramos/projects/openevolve-lab/openevolve/openevolve/database.py#L1111-L1145)), it replaces the occupant and logs:
+     `Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 9} (fitness: 0.418 -> 1.028)`
+4. **Exploitation Sampling from MAP-Elites Cells**:
+   * During parent selection (`exploitation_ratio`), OpenEvolve samples directly from the elites occupying the island's MAP-Elites grid cells, ensuring every mutation starts from a locally optimal representative of a distinct behavioral niche.
+
