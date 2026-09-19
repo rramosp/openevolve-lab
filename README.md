@@ -1,5 +1,8 @@
 # OpenEvolve Lab
 
+![prompt optimization](imgs/promptopt.png)
+
+
 ## 1. Install
 
 Have your API_KEY of your favourite LLM ready. You can get one for free for small usage from https://openrouter.ai/. I recommend the "Openrouter Free" model which is a wrapper around multiple free models.
@@ -104,7 +107,7 @@ And ask again your coding assistant
 
 ## 5. Run and inspect an example of your interest.
 
-For instance, under `openevolve/examples/symbolic_regression/` you can find an implementation of symbolic regression (finding a formula that fits some data points) for different physics, chemistry and biology datasets.
+For instance, under `openevolve/examples/symbolic_regression/` you can find an implementation of **symbolic regression** (finding a formula that fits some data points) for different physics, chemistry and biology datasets.
 
 Follow the instructions there, select a problem to evolve and use the notebook `inspect_symbolic_regression.ipynb` to understand the process and visualize the results. You will probably need to:
 
