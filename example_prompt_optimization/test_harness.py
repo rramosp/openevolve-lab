@@ -226,11 +226,11 @@ def main() -> None:
         _print_prompt_inspection(args.program)
         return
 
-    if not os.environ.get("OPENAI_API_KEY"):
+    if not os.environ.get("OPENAI_COMPATIBLE_API_KEY"):
         print(
-            "ERROR: OPENAI_API_KEY is not set in your shell environment.\n"
+            "ERROR: OPENAI_COMPATIBLE_API_KEY is not set in your shell environment.\n"
             "Please export your API key first:\n"
-            "  export OPENAI_API_KEY='your-api-key'",
+            "  export OPENAI_COMPATIBLE_API_KEY='your-api-key'",
             file=sys.stderr,
         )
         sys.exit(1)

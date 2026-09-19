@@ -62,13 +62,13 @@ MAX_WORKERS = int(os.environ.get("EVAL_MAX_WORKERS", "8"))
 
 
 def _get_api_key() -> str:
-    api_key = os.environ.get("OPENAI_API_KEY")
+    api_key = os.environ.get("OPENAI_COMPATIBLE_API_KEY")
     if api_key:
         api_key = api_key.strip().strip("'\"")
     if not api_key:
         raise RuntimeError(
-            "Missing API key. Please set OPENAI_API_KEY in your shell environment:\n"
-            "  export OPENAI_API_KEY='your-api-key'"
+            "Missing API key. Please set OPENAI_COMPATIBLE_API_KEY in your shell environment:\n"
+            "  export OPENAI_COMPATIBLE_API_KEY='your-api-key'"
         )
     return api_key
 

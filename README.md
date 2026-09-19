@@ -7,14 +7,14 @@ Have your API_KEY of your favourite LLM ready. You can get one for free for smal
    
 Check your API key works. For example, if using openrouter.ai:
 
-    > export OPENAI_API_KEY=## YOUR OPENAI COMPATIBLE KEY (openrouter, chatgpt, gemini, etc.) 
+    > export OPENAI_COMPATIBLE_API_KEY=## YOUR OPENAI COMPATIBLE KEY (openrouter, chatgpt, gemini, etc.) 
     > export OPENAI_COMPATIBLE_URL="https://openrouter.ai/api/v1" ## or chatgpt, gemini, etc.
     > export MODEL="openrouter/free"
     > python call_model.py "what is the meaning of life"
 
 or, if you are using GEMINI
 
-    > export OPENAI_API_KEY=##YOUR GEMINI API KEY##
+    > export OPENAI_COMPATIBLE_API_KEY=##YOUR GEMINI API KEY##
     > export OPENAI_COMPATIBLE_URL="https://generativelanguage.googleapis.com/v1beta/openai"
     > export MODEL="gemini-3.5-flash"
     > python call_model.py "what is the meaning of life"
@@ -26,9 +26,10 @@ Clone open evolve:
 
 Set `primary_model`, `secondary_model` and `api_base` in `openevolve/examples/function_minimization/config.yaml` to `"openevolve/free"` and `"https://openrouter.ai/api/v1"` or whatever model you are using.
 
-Make a short run of one the examples, `openevolve` reads `$OPENAI_API_KEY`  
+Make a short run of one the examples, `openevolve` reads `$OPENAI_COMPATIBLE_API_KEY`  
 
     > cd openevolve    
+    > export OPENAI_API_KEY=${OPENAI_COMPATIBLE_API_KEY}
     > python openevolve-run.py examples/function_minimization/initial_program.py\
              examples/function_minimization/evaluator.py   \
              --config examples/function_minimization/config.yaml   \

@@ -35,7 +35,7 @@ This lab kit is **100% standalone** and requires only Python 3.10+ and a Gemini 
 pip install -r requirements.txt
 
 # 2. Export your OpenAI-compatible API key and endpoint
-export OPENAI_API_KEY="your-api-key"
+export OPENAI_COMPATIBLE_API_KEY="your-api-key"
 export OPENAI_COMPATIBLE_URL="https://generativelanguage.googleapis.com/v1beta/openai"
 export MODEL="gemini-3.5-flash-lite"
 

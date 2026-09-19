@@ -1,7 +1,7 @@
 """Main Lab Runner for the OpenEvolve Prompt Optimization Lab.
 
 Runnable from any shell with zero Google3 dependencies:
-  export OPENAI_API_KEY="your-api-key"
+  export OPENAI_COMPATIBLE_API_KEY="your-api-key"
   python3 run_lab.py --iterations 20 --output-dir run_with_artifacts
 
 Supports hands-on lab flags:
@@ -102,11 +102,11 @@ def main() -> None:
         )
         sys.exit(1)
 
-    if not os.environ.get("OPENAI_API_KEY"):
+    if not os.environ.get("OPENAI_COMPATIBLE_API_KEY"):
         print(
-            "ERROR: OPENAI_API_KEY is not set in your shell environment.\n"
+            "ERROR: OPENAI_COMPATIBLE_API_KEY is not set in your shell environment.\n"
             "Please export your API key before launching evolution:\n"
-            "  export OPENAI_API_KEY='your-api-key'",
+            "  export OPENAI_COMPATIBLE_API_KEY='your-api-key'",
             file=sys.stderr,
         )
         sys.exit(1)

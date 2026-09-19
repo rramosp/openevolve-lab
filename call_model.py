@@ -19,12 +19,12 @@ def call_model(
 ) -> str:
     """Calls the REST API using only Python standard library HTTP modules."""
     if api_key is None:
-        api_key = os.environ.get("OPENAI_API_KEY")
+        api_key = os.environ.get("OPENAI_COMPATIBLE_API_KEY")
     if api_key:
         api_key = api_key.strip().strip("'\"")
     if not api_key:
         raise ValueError(
-            "API key must be provided or set in OPENAI_API_KEY environment variable."
+            "API key must be provided or set in OPENAI_COMPATIBLE_API_KEY environment variable."
         )
 
     if not url:
@@ -70,12 +70,12 @@ if __name__ == "__main__":
     except ImportError:
         pass
 
-    api_key = os.environ.get("OPENAI_API_KEY")
+    api_key = os.environ.get("OPENAI_COMPATIBLE_API_KEY")
     if not api_key:
         print(
-            "Error: OPENAI_API_KEY environment variable not set.\n"
+            "Error: OPENAI_COMPATIBLE_API_KEY environment variable not set.\n"
             "Please set it before running:\n"
-            "  export OPENAI_API_KEY='your_key_here'",
+            "  export OPENAI_COMPATIBLE_API_KEY='your_key_here'",
                 file=sys.stderr,
         )
         sys.exit(1)
