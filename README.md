@@ -1,5 +1,7 @@
 # OpenEvolve Lab
 
+![symbolic regression](imgs/symreg.png)
+
 ![prompt optimization](imgs/promptopt.png)
 
 
