@@ -1,0 +1,154 @@
+2026-09-19 10:22:34,898 - openevolve.controller - INFO - Logging to examples/symbolic_regression/problems/matsci/MatSci18/openevolve_output/logs/openevolve_20260919_102234.log
+2026-09-19 10:22:34,905 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-09-19 10:22:34,936 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: gemini-3.5-flash-lite
+2026-09-19 10:22:34,937 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: gemini-3.5-flash
+2026-09-19 10:22:34,937 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gemini-3.5-flash-lite (weight: 0.80), gemini-3.5-flash (weight: 0.20)
+2026-09-19 10:22:34,938 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gemini-3.5-flash-lite (weight: 0.80), gemini-3.5-flash (weight: 0.20)
+2026-09-19 10:22:34,940 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-09-19 10:22:34,941 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-09-19 10:22:34,941 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-09-19 10:22:35,261 - openevolve.evaluator - INFO - Successfully loaded evaluation function from examples/symbolic_regression/problems/matsci/MatSci18/evaluator.py
+2026-09-19 10:22:35,261 - openevolve.evaluator - INFO - Initialized evaluator with examples/symbolic_regression/problems/matsci/MatSci18/evaluator.py
+2026-09-19 10:22:35,261 - openevolve.controller - INFO - Initialized OpenEvolve with examples/symbolic_regression/problems/matsci/MatSci18/initial_program.py
+2026-09-19 10:22:35,261 - openevolve.controller - INFO - Adding initial program to database
+2026-09-19 10:22:35,285 - openevolve.evaluator - INFO - Evaluated program 930e41d3-4179-4232-ad4c-3a5f03d06272 in 0.02s: combined_score=-8.5440, negative_mse=-349944854.0641
+2026-09-19 10:22:35,285 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-09-19 10:22:35,287 - openevolve.process_parallel - INFO - Initialized process parallel controller with 4 workers
+2026-09-19 10:22:35,287 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-09-19 10:22:35,288 - openevolve.process_parallel - INFO - Started process pool with 4 processes
+2026-09-19 10:22:35,288 - openevolve.controller - INFO - Using island-based evolution with 4 islands
+2026-09-19 10:22:35,289 - openevolve.database - INFO - Island Status:
+2026-09-19 10:22:35,289 - openevolve.database - INFO -  * Island 0: 1 programs, best=-8.5440, avg=-8.5440, diversity=0.00, gen=0 (best: 930e41d3-4179-4232-ad4c-3a5f03d06272)
+2026-09-19 10:22:35,289 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-09-19 10:22:35,289 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-09-19 10:22:35,289 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-09-19 10:22:35,289 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-09-19 10:22:35,396 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-09-19 10:22:35,485 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gemini-3.5-flash-lite (weight: 0.80), gemini-3.5-flash (weight: 0.20)
+2026-09-19 10:22:35,489 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gemini-3.5-flash-lite (weight: 0.80), gemini-3.5-flash (weight: 0.20)
+2026-09-19 10:22:35,490 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-09-19 10:22:35,491 - openevolve.evaluator - INFO - Successfully loaded evaluation function from examples/symbolic_regression/problems/matsci/MatSci18/evaluator.py
+2026-09-19 10:22:35,491 - openevolve.evaluator - INFO - Initialized evaluator with examples/symbolic_regression/problems/matsci/MatSci18/evaluator.py
+2026-09-19 10:22:35,491 - openevolve.llm.ensemble - INFO - Sampled model: gemini-3.5-flash
+2026-09-19 10:22:35,491 - openevolve.llm.openai - WARNING - Skipping seed parameter as Google AI Studio endpoint doesn't support it. Reproducibility may be limited.
+2026-09-19 10:22:35,401 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gemini-3.5-flash-lite (weight: 0.80), gemini-3.5-flash (weight: 0.20)
+2026-09-19 10:22:35,496 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gemini-3.5-flash-lite (weight: 0.80), gemini-3.5-flash (weight: 0.20)
+2026-09-19 10:22:35,499 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gemini-3.5-flash-lite (weight: 0.80), gemini-3.5-flash (weight: 0.20)
+2026-09-19 10:22:35,499 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gemini-3.5-flash-lite (weight: 0.80), gemini-3.5-flash (weight: 0.20)
+2026-09-19 10:22:35,500 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gemini-3.5-flash-lite (weight: 0.80), gemini-3.5-flash (weight: 0.20)
+2026-09-19 10:22:35,500 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-09-19 10:22:35,500 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-09-19 10:22:35,501 - openevolve.evaluator - INFO - Successfully loaded evaluation function from examples/symbolic_regression/problems/matsci/MatSci18/evaluator.py
+2026-09-19 10:22:35,501 - openevolve.evaluator - INFO - Successfully loaded evaluation function from examples/symbolic_regression/problems/matsci/MatSci18/evaluator.py
+2026-09-19 10:22:35,501 - openevolve.evaluator - INFO - Initialized evaluator with examples/symbolic_regression/problems/matsci/MatSci18/evaluator.py
+2026-09-19 10:22:35,501 - openevolve.evaluator - INFO - Initialized evaluator with examples/symbolic_regression/problems/matsci/MatSci18/evaluator.py
+2026-09-19 10:22:35,502 - openevolve.llm.ensemble - INFO - Sampled model: gemini-3.5-flash
+2026-09-19 10:22:35,502 - openevolve.llm.ensemble - INFO - Sampled model: gemini-3.5-flash
+2026-09-19 10:22:35,502 - openevolve.llm.openai - WARNING - Skipping seed parameter as Google AI Studio endpoint doesn't support it. Reproducibility may be limited.
+2026-09-19 10:22:35,502 - openevolve.llm.openai - WARNING - Skipping seed parameter as Google AI Studio endpoint doesn't support it. Reproducibility may be limited.
+2026-09-19 10:22:35,503 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gemini-3.5-flash-lite (weight: 0.80), gemini-3.5-flash (weight: 0.20)
+2026-09-19 10:22:35,504 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-09-19 10:22:35,505 - openevolve.evaluator - INFO - Successfully loaded evaluation function from examples/symbolic_regression/problems/matsci/MatSci18/evaluator.py
+2026-09-19 10:22:35,505 - openevolve.evaluator - INFO - Initialized evaluator with examples/symbolic_regression/problems/matsci/MatSci18/evaluator.py
+2026-09-19 10:22:35,505 - openevolve.llm.ensemble - INFO - Sampled model: gemini-3.5-flash
+2026-09-19 10:22:35,505 - openevolve.llm.openai - WARNING - Skipping seed parameter as Google AI Studio endpoint doesn't support it. Reproducibility may be limited.
+2026-09-19 10:22:57,374 - httpx2 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2026-09-19 10:22:57,385 - openevolve.llm.openai - INFO - LLM Token Usage (gemini-3.5-flash): prompt_tokens=1611, completion_tokens=714, total_tokens=6822
+2026-09-19 10:22:57,473 - openevolve.evaluator - INFO - Evaluated program 34cb2620-6cf1-4450-bc8c-396e66b95976 in 0.09s: combined_score=-3.0282, negative_mse=-1067.0104
+2026-09-19 10:22:57,474 - openevolve.llm.ensemble - INFO - Sampled model: gemini-3.5-flash
+2026-09-19 10:22:57,475 - openevolve.llm.openai - WARNING - Skipping seed parameter as Google AI Studio endpoint doesn't support it. Reproducibility may be limited.
+2026-09-19 10:22:57,483 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 9, 'diversity': 5}
+2026-09-19 10:22:57,483 - openevolve.database - INFO - New best program 34cb2620-6cf1-4450-bc8c-396e66b95976 replaces 930e41d3-4179-4232-ad4c-3a5f03d06272 (combined_score: -8.5440 → -3.0282, +5.5158)
+2026-09-19 10:22:57,483 - openevolve.process_parallel - INFO - Iteration 4: Program 34cb2620-6cf1-4450-bc8c-396e66b95976 (parent: 930e41d3-4179-4232-ad4c-3a5f03d06272) completed in 21.97s | tokens: 6822 (prompt: 1611, completion: 714)
+2026-09-19 10:22:57,483 - openevolve.process_parallel - INFO - Metrics: combined_score=-3.0282, negative_mse=-1067.0104
+2026-09-19 10:22:57,483 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 4: 34cb2620-6cf1-4450-bc8c-396e66b95976
+2026-09-19 10:23:07,617 - httpx2 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2026-09-19 10:23:07,626 - openevolve.llm.openai - INFO - LLM Token Usage (gemini-3.5-flash): prompt_tokens=1611, completion_tokens=838, total_tokens=9280
+2026-09-19 10:23:08,647 - openevolve.evaluator - INFO - Evaluated program 2c68a10a-2519-4092-9f7c-efdb6258ed96 in 1.02s: combined_score=-6.3025, negative_mse=-2006638.2697
+2026-09-19 10:23:08,649 - openevolve.llm.ensemble - INFO - Sampled model: gemini-3.5-flash
+2026-09-19 10:23:08,649 - openevolve.llm.openai - WARNING - Skipping seed parameter as Google AI Studio endpoint doesn't support it. Reproducibility may be limited.
+2026-09-19 10:23:08,655 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 5, 'diversity': 0} (fitness: -8.544 -> -6.302)
+2026-09-19 10:23:08,655 - openevolve.process_parallel - INFO - Iteration 2: Program 2c68a10a-2519-4092-9f7c-efdb6258ed96 (parent: 930e41d3-4179-4232-ad4c-3a5f03d06272) completed in 33.16s | tokens: 9280 (prompt: 1611, completion: 838)
+2026-09-19 10:23:08,655 - openevolve.process_parallel - INFO - Metrics: combined_score=-6.3025, negative_mse=-2006638.2697
+2026-09-19 10:23:12,631 - httpx2 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2026-09-19 10:23:12,640 - openevolve.llm.openai - INFO - LLM Token Usage (gemini-3.5-flash): prompt_tokens=1611, completion_tokens=720, total_tokens=10540
+2026-09-19 10:23:12,761 - openevolve.evaluator - INFO - Evaluated program db5f2305-b73e-4c9f-b36a-7a7b8437287b in 0.12s: combined_score=-9.3334, negative_mse=-2154599729.5400
+2026-09-19 10:23:12,762 - openevolve.llm.ensemble - INFO - Sampled model: gemini-3.5-flash
+2026-09-19 10:23:12,763 - openevolve.llm.openai - WARNING - Skipping seed parameter as Google AI Studio endpoint doesn't support it. Reproducibility may be limited.
+2026-09-19 10:23:12,765 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 0, 'diversity': 9}
+2026-09-19 10:23:12,765 - openevolve.process_parallel - INFO - Iteration 1: Program db5f2305-b73e-4c9f-b36a-7a7b8437287b (parent: 930e41d3-4179-4232-ad4c-3a5f03d06272) completed in 37.26s | tokens: 10540 (prompt: 1611, completion: 720)
+2026-09-19 10:23:12,765 - openevolve.process_parallel - INFO - Metrics: combined_score=-9.3334, negative_mse=-2154599729.5400
+2026-09-19 10:23:15,445 - httpx2 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2026-09-19 10:23:15,455 - openevolve.llm.openai - INFO - LLM Token Usage (gemini-3.5-flash): prompt_tokens=1611, completion_tokens=880, total_tokens=10796
+2026-09-19 10:23:15,665 - openevolve.evaluator - INFO - Evaluated program 38ea8dbb-6f75-4e9c-83e9-4949d95c6492 in 0.21s: combined_score=-7.3348, negative_mse=-21616639.0956
+2026-09-19 10:23:15,667 - openevolve.llm.ensemble - INFO - Sampled model: gemini-3.5-flash
+2026-09-19 10:23:15,667 - openevolve.llm.openai - WARNING - Skipping seed parameter as Google AI Studio endpoint doesn't support it. Reproducibility may be limited.
+2026-09-19 10:23:15,675 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 2, 'diversity': 3}
+2026-09-19 10:23:15,675 - openevolve.process_parallel - INFO - Iteration 3: Program 38ea8dbb-6f75-4e9c-83e9-4949d95c6492 (parent: 930e41d3-4179-4232-ad4c-3a5f03d06272) completed in 40.17s | tokens: 10796 (prompt: 1611, completion: 880)
+2026-09-19 10:23:15,675 - openevolve.process_parallel - INFO - Metrics: combined_score=-7.3348, negative_mse=-21616639.0956
+2026-09-19 10:23:27,867 - httpx2 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2026-09-19 10:23:27,870 - openevolve.llm.openai - INFO - LLM Token Usage (gemini-3.5-flash): prompt_tokens=1611, completion_tokens=922, total_tokens=8960
+2026-09-19 10:23:27,906 - openevolve.evaluator - INFO - Evaluated program 25d77247-65ab-4f48-82ca-0fe213af8cb2 in 0.04s: combined_score=-9.1436, negative_mse=-1391877752.9108
+2026-09-19 10:23:27,908 - openevolve.llm.ensemble - INFO - Sampled model: gemini-3.5-flash-lite
+2026-09-19 10:23:27,908 - openevolve.llm.openai - WARNING - Skipping seed parameter as Google AI Studio endpoint doesn't support it. Reproducibility may be limited.
+2026-09-19 10:23:27,914 - openevolve.database - INFO - New MAP-Elites cell occupied in island 2: {'complexity': 8, 'diversity': 1}
+2026-09-19 10:23:27,914 - openevolve.process_parallel - INFO - Iteration 5: Program 25d77247-65ab-4f48-82ca-0fe213af8cb2 (parent: 930e41d3-4179-4232-ad4c-3a5f03d06272) completed in 30.43s | tokens: 8960 (prompt: 1611, completion: 922)
+2026-09-19 10:23:27,914 - openevolve.process_parallel - INFO - Metrics: combined_score=-9.1436, negative_mse=-1391877752.9108
+2026-09-19 10:23:30,107 - httpx2 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2026-09-19 10:23:30,109 - openevolve.llm.openai - INFO - LLM Token Usage (gemini-3.5-flash-lite): prompt_tokens=2467, completion_tokens=558, total_tokens=3025
+2026-09-19 10:23:30,335 - openevolve.evaluator - INFO - Evaluated program 10811bc3-427c-467e-a85b-f3a10c3e636f in 0.23s: combined_score=-4.9817, negative_mse=-95883.1921
+2026-09-19 10:23:30,337 - openevolve.llm.ensemble - INFO - Sampled model: gemini-3.5-flash
+2026-09-19 10:23:30,337 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 9, 'diversity': 1}
+2026-09-19 10:23:30,337 - openevolve.llm.openai - WARNING - Skipping seed parameter as Google AI Studio endpoint doesn't support it. Reproducibility may be limited.
+2026-09-19 10:23:30,337 - openevolve.process_parallel - INFO - Iteration 9: Program 10811bc3-427c-467e-a85b-f3a10c3e636f (parent: 34cb2620-6cf1-4450-bc8c-396e66b95976) completed in 2.43s | tokens: 3025 (prompt: 2467, completion: 558)
+2026-09-19 10:23:30,337 - openevolve.process_parallel - INFO - Metrics: combined_score=-4.9817, negative_mse=-95883.1921
+2026-09-19 10:23:32,554 - httpx2 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2026-09-19 10:23:32,556 - openevolve.llm.openai - INFO - LLM Token Usage (gemini-3.5-flash): prompt_tokens=1611, completion_tokens=756, total_tokens=6244
+2026-09-19 10:23:32,963 - openevolve.evaluator - INFO - Evaluated program c796a1e0-68fd-4421-bac3-fd7b1f0929a4 in 0.41s: combined_score=-5.8912, negative_mse=-778330.1865
+2026-09-19 10:23:32,965 - openevolve.database - INFO - New MAP-Elites cell occupied in island 3: {'complexity': 2, 'diversity': 1}
+2026-09-19 10:23:32,965 - openevolve.process_parallel - INFO - Iteration 7: Program c796a1e0-68fd-4421-bac3-fd7b1f0929a4 (parent: 930e41d3-4179-4232-ad4c-3a5f03d06272) completed in 20.20s | tokens: 6244 (prompt: 1611, completion: 756)
+2026-09-19 10:23:32,965 - openevolve.process_parallel - INFO - Metrics: combined_score=-5.8912, negative_mse=-778330.1865
+2026-09-19 10:23:42,248 - httpx2 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2026-09-19 10:23:42,251 - openevolve.llm.openai - INFO - LLM Token Usage (gemini-3.5-flash): prompt_tokens=1611, completion_tokens=576, total_tokens=9491
+2026-09-19 10:23:42,278 - openevolve.evaluator - INFO - Evaluated program 8eddda55-7d62-49e8-94db-4daa0ba9c652 in 0.03s: combined_score=-27.5452, negative_mse=-3509155119413009550873198592.0000
+2026-09-19 10:23:42,282 - openevolve.database - INFO - New MAP-Elites cell occupied in island 2: {'complexity': 1, 'diversity': 1}
+2026-09-19 10:23:42,282 - openevolve.process_parallel - INFO - Iteration 6: Program 8eddda55-7d62-49e8-94db-4daa0ba9c652 (parent: 930e41d3-4179-4232-ad4c-3a5f03d06272) completed in 33.63s | tokens: 9491 (prompt: 1611, completion: 576)
+2026-09-19 10:23:42,282 - openevolve.process_parallel - INFO - Metrics: combined_score=-27.5452, negative_mse=-3509155119413009550873198592.0000
+2026-09-19 10:23:44,829 - httpx2 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2026-09-19 10:23:44,832 - openevolve.llm.openai - INFO - LLM Token Usage (gemini-3.5-flash): prompt_tokens=1611, completion_tokens=858, total_tokens=8125
+2026-09-19 10:23:44,944 - openevolve.evaluator - INFO - Evaluated program 9eba31c4-f564-4913-9a2f-13ba9042198b in 0.11s: combined_score=-8.5440, negative_mse=-349944743.6328
+2026-09-19 10:23:44,946 - openevolve.database - INFO - New MAP-Elites cell occupied in island 3: {'complexity': 9, 'diversity': 1}
+2026-09-19 10:23:44,946 - openevolve.process_parallel - INFO - Iteration 8: Program 9eba31c4-f564-4913-9a2f-13ba9042198b (parent: 930e41d3-4179-4232-ad4c-3a5f03d06272) completed in 29.28s | tokens: 8125 (prompt: 1611, completion: 858)
+2026-09-19 10:23:44,946 - openevolve.process_parallel - INFO - Metrics: combined_score=-8.5440, negative_mse=-349944743.6328
+2026-09-19 10:24:06,743 - httpx2 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2026-09-19 10:24:06,746 - openevolve.llm.openai - INFO - LLM Token Usage (gemini-3.5-flash): prompt_tokens=2486, completion_tokens=929, total_tokens=11610
+2026-09-19 10:24:07,148 - openevolve.evaluator - INFO - Evaluated program 20397e25-0ebb-49d8-b026-a2860f1d5ee8 in 0.40s: combined_score=-6.8246, negative_mse=-6677302.0381
+2026-09-19 10:24:07,156 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 4, 'diversity': 0}
+2026-09-19 10:24:07,156 - openevolve.process_parallel - INFO - Iteration 10: Program 20397e25-0ebb-49d8-b026-a2860f1d5ee8 (parent: 2c68a10a-2519-4092-9f7c-efdb6258ed96) completed in 36.81s | tokens: 11610 (prompt: 2486, completion: 929)
+2026-09-19 10:24:07,156 - openevolve.process_parallel - INFO - Metrics: combined_score=-6.8246, negative_mse=-6677302.0381
+2026-09-19 10:24:07,156 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 10
+2026-09-19 10:24:07,156 - openevolve.database - INFO - Island Status:
+2026-09-19 10:24:07,156 - openevolve.database - INFO -  * Island 0: 3 programs, best=-6.3025, avg=-7.4868, diversity=171.07, gen=3 (best: 2c68a10a-2519-4092-9f7c-efdb6258ed96)
+2026-09-19 10:24:07,156 - openevolve.database - INFO -    Island 1: 3 programs, best=-3.0282, avg=-5.1149, diversity=165.47, gen=3 (best: 34cb2620-6cf1-4450-bc8c-396e66b95976)
+2026-09-19 10:24:07,156 - openevolve.database - INFO -    Island 2: 2 programs, best=-9.1436, avg=-18.3444, diversity=168.00, gen=2 (best: 25d77247-65ab-4f48-82ca-0fe213af8cb2)
+2026-09-19 10:24:07,156 - openevolve.database - INFO -    Island 3: 2 programs, best=-5.8912, avg=-7.2176, diversity=198.80, gen=2 (best: c796a1e0-68fd-4421-bac3-fd7b1f0929a4)
+2026-09-19 10:24:07,162 - openevolve.database - INFO - Saved database with 10 programs to examples/symbolic_regression/problems/matsci/MatSci18/openevolve_output/checkpoints/checkpoint_10
+2026-09-19 10:24:07,163 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=-3.0282, negative_mse=-1067.0104
+2026-09-19 10:24:07,163 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to examples/symbolic_regression/problems/matsci/MatSci18/openevolve_output/checkpoints/checkpoint_10
+2026-09-19 10:24:07,163 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2026-09-19 10:24:07,163 - openevolve.process_parallel - INFO - 📊 Total LLM Token Usage (10 calls): total_tokens=84893 (prompt_tokens=17841, completion_tokens=7751)
+2026-09-19 10:24:07,166 - openevolve.database - INFO - Saved database with 10 programs to examples/symbolic_regression/problems/matsci/MatSci18/openevolve_output/checkpoints/checkpoint_10
+2026-09-19 10:24:07,167 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=-3.0282, negative_mse=-1067.0104
+2026-09-19 10:24:07,167 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to examples/symbolic_regression/problems/matsci/MatSci18/openevolve_output/checkpoints/checkpoint_10
+2026-09-19 10:24:07,167 - openevolve.controller - INFO - Received signal 15, initiating graceful shutdown...
+2026-09-19 10:24:07,167 - openevolve.controller - INFO - Received signal 15, initiating graceful shutdown...
+2026-09-19 10:24:07,167 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-09-19 10:24:07,167 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-09-19 10:24:07,168 - openevolve.controller - INFO - Received signal 15, initiating graceful shutdown...
+2026-09-19 10:24:07,168 - openevolve.controller - INFO - Received signal 15, initiating graceful shutdown...
+2026-09-19 10:24:07,168 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-09-19 10:24:07,168 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-09-19 10:24:07,189 - openevolve.process_parallel - INFO - Stopped process pool
+2026-09-19 10:24:07,189 - openevolve.controller - INFO - Using tracked best program: 34cb2620-6cf1-4450-bc8c-396e66b95976
+2026-09-19 10:24:07,190 - openevolve.controller - INFO - Evolution complete. Best program has metrics: combined_score=-3.0282, negative_mse=-1067.0104
+2026-09-19 10:24:07,190 - openevolve.controller - INFO - Saved best program to examples/symbolic_regression/problems/matsci/MatSci18/openevolve_output/best/best_program.py with program info to examples/symbolic_regression/problems/matsci/MatSci18/openevolve_output/best/best_program_info.json
