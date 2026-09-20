@@ -141,9 +141,9 @@ Now ask your coding assistant again:
 
 ---
 
-## 5. Run and Inspect Domain Examples
+## 5. Run Hands On Examples
 
-### Option A: Symbolic Regression
+### Option A: Symbolic Regression (from `openevolve` repo)
 
 Clone the [`openevolve` repo](https://github.com/algorithmicsuperintelligence/openevolve)
 
