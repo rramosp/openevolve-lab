@@ -147,7 +147,7 @@ Now ask your coding assistant again:
 
 Clone the [`openevolve` repo](https://github.com/algorithmicsuperintelligence/openevolve)
 
->   > git clone https://github.com/algorithmicsuperintelligence/openevolve
+>   git clone https://github.com/algorithmicsuperintelligence/openevolve
 
 
 Under `openevolve/examples/symbolic_regression/` you will find an implementation of **symbolic regression** (discovering a mathematical formula that fits data points) across physics, chemistry, and biology datasets.
@@ -164,12 +164,12 @@ Follow the instructions there, choose a problem to evolve, and use the notebook 
 > - Remember to update each problem's `config.yaml` with your desired models—or set `primary_model`, `secondary_model`, and `api_base` in `openevolve/examples/symbolic_regression/data_api.py` before generating the problem folders.
 > - Use the following commands to launch a run:
 >   ```bash
->   > cd openevolve
->   > export OPENEVOLVE_CONFIG_BASEDIR=examples/symbolic_regression/problems/matsci/MatSci18
->   > python openevolve-run.py ${OPENEVOLVE_CONFIG_BASEDIR}/initial_program.py \
->                              ${OPENEVOLVE_CONFIG_BASEDIR}/evaluator.py \
->                              --config ${OPENEVOLVE_CONFIG_BASEDIR}/config.yaml \
->                              --iterations 10
+>   cd openevolve
+>   export OPENEVOLVE_CONFIG_BASEDIR=examples/symbolic_regression/problems/matsci/MatSci18
+>   python openevolve-run.py ${OPENEVOLVE_CONFIG_BASEDIR}/initial_program.py \
+>                            ${OPENEVOLVE_CONFIG_BASEDIR}/evaluator.py \
+>                            --config ${OPENEVOLVE_CONFIG_BASEDIR}/config.yaml \
+>                            --iterations 10
 >   ```
 
 Use your coding assistant to debug any issues you encounter along the way. For example, on `MatSci18`, the run initially stalled at a large negative score without evolving—see [my conversation](conversation.md) for how we diagnosed and fixed it.
