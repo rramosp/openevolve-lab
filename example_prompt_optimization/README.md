@@ -28,20 +28,73 @@ flowchart LR
 
 ## 📦 Standalone Setup (Any Shell / Zero Monorepo Dependencies)
 
-This lab kit is **100% standalone** and requires only Python 3.10+ and a Gemini API key:
+This lab kit is **100% standalone** and requires only Python 3.10+ and an OpenAI-compatible API key (e.g., [OpenRouter](https://openrouter.ai/) free models or Google Gemini).
 
+Install dependencies first:
 ```bash
-# 1. Install dependencies in any virtualenv or shell
 pip install -r requirements.txt
+```
 
-# 2. Export your OpenAI-compatible API key and endpoint
-export OPENAI_COMPATIBLE_API_KEY="your-api-key"
-export OPENAI_COMPATIBLE_URL="https://generativelanguage.googleapis.com/v1beta/openai"
-export MODEL="gemini-3.5-flash-lite"
+Because prompt optimization involves **two distinct LLM roles**, setup is divided into two parts:
 
-# 3. Inspect the baseline prompt structure (no API call required)
+---
+
+### Part 1: Setup for Evaluating Prompts (`evaluator.py` & `test_harness.py`)
+
+This configures the **Target LLM**—the model that actually reads the 18 support tickets and generates JSON predictions when you run `test_harness.py` (Exercises 1–2) or when `evaluator.py` grades candidate prompts during evolution.
+
+It is configured entirely via **shell environment variables**:
+
+- **Option A — OpenRouter (free models):**
+  ```bash
+  export OPENAI_COMPATIBLE_API_KEY="your-openrouter-api-key"
+  export OPENAI_COMPATIBLE_URL="https://openrouter.ai/api/v1"
+  export MODEL="openrouter/free"
+  ```
+
+- **Option B — Google Gemini:**
+  ```bash
+  export OPENAI_COMPATIBLE_API_KEY="your-gemini-api-key"
+  export OPENAI_COMPATIBLE_URL="https://generativelanguage.googleapis.com/v1beta/openai"
+  export MODEL="gemini-3.5-flash-lite"
+  ```
+
+Verify your setup by inspecting the baseline prompt structure (no API call required):
+```bash
 python3 test_harness.py --show-prompt initial_program.py
 ```
+
+---
+
+### Part 2: Setup for Running OpenEvolve (`config.yaml` & `run_lab.py`)
+
+This configures the **Mutator LLM Ensemble**—the meta-level LLM that reads failing ticket artifacts and generates `SEARCH/REPLACE` code diffs to evolve new prompts when you run `python3 run_lab.py` (Exercises 3–5).
+
+It is configured under the `llm:` section in [`config.yaml`](./config.yaml):
+
+- **If using Google Gemini (default in [`config.yaml`](./config.yaml)):**
+  ```yaml
+  llm:
+    models:
+      - name: "gemini-3.5-flash"
+        weight: 0.7
+      - name: "gemini-3.5-flash-lite"
+        weight: 0.3
+    api_base: "https://generativelanguage.googleapis.com/v1beta/openai/"
+    api_key: ${OPENAI_COMPATIBLE_API_KEY}
+  ```
+
+- **If using OpenRouter (free models), update `llm:` in [`config.yaml`](./config.yaml) to:**
+  ```yaml
+  llm:
+    models:
+      - name: "openrouter/free"
+        weight: 1.0
+    api_base: "https://openrouter.ai/api/v1"
+    api_key: ${OPENAI_COMPATIBLE_API_KEY}
+  ```
+
+> **Note:** Also export `OPENAI_API_KEY=${OPENAI_COMPATIBLE_API_KEY}` in your shell if any internal `openevolve` fallback reads `OPENAI_API_KEY` directly.
 
 ---
 
