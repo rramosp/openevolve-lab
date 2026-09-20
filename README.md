@@ -145,7 +145,12 @@ Now ask your coding assistant again:
 
 ### Option A: Symbolic Regression
 
-Under `openevolve/examples/symbolic_regression/`, in the [source `openevolve` repo](https://github.com/algorithmicsuperintelligence/openevolve)  you will find an implementation of **symbolic regression** (discovering a mathematical formula that fits data points) across physics, chemistry, and biology datasets.
+Clone the [`openevolve` repo](https://github.com/algorithmicsuperintelligence/openevolve)
+
+>   > git clone https://github.com/algorithmicsuperintelligence/openevolve
+
+
+Under `openevolve/examples/symbolic_regression/` you will find an implementation of **symbolic regression** (discovering a mathematical formula that fits data points) across physics, chemistry, and biology datasets.
 
 Follow the instructions there, choose a problem to evolve, and use the notebook [`inspect_symbolic_regresion.ipynb`](./inspect_symbolic_regresion.ipynb) to inspect and visualize the evolutionary trajectory.
 
@@ -159,7 +164,6 @@ Follow the instructions there, choose a problem to evolve, and use the notebook 
 > - Remember to update each problem's `config.yaml` with your desired models—or set `primary_model`, `secondary_model`, and `api_base` in `openevolve/examples/symbolic_regression/data_api.py` before generating the problem folders.
 > - Use the following commands to launch a run:
 >   ```bash
->   > git clone https://github.com/algorithmicsuperintelligence/openevolve
 >   > cd openevolve
 >   > export OPENEVOLVE_CONFIG_BASEDIR=examples/symbolic_regression/problems/matsci/MatSci18
 >   > python openevolve-run.py ${OPENEVOLVE_CONFIG_BASEDIR}/initial_program.py \
