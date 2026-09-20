@@ -185,7 +185,7 @@ Under [`example_prompt_optimization/`](./example_prompt_optimization/README.md),
 - **Adversarial Dataset ([`dataset.py`](./example_prompt_optimization/dataset.py))**: 18 curated tickets spanning 6 failure modes (`sarcasm_outage`, `multi_intent`, `resolved_negation`, `security_pii`, `entity_edge_cases`, and `benign_routine`), plus a fast 5-ticket Stage-1 canary gate.
 - **Evaluator ([`evaluator.py`](./example_prompt_optimization/evaluator.py))**: Grades multi-label F1, urgency, sentiment, entity extraction, human escalation, and clean raw JSON formatting while applying a token bloat penalty and returning diagnostic **artifacts**.
 
-** Progressive Hands-On Exercises ([full guide](./example_prompt_optimization/README.md)):**
+**Progressive Hands-On Exercises ([full guide](./example_prompt_optimization/README.md)):**
 1. **Inspect, Evaluate & Beat the Baseline by Hand**: Trace how single tickets are scored, benchmark `initial_program.py`, and hand-engineer an improved prompt in [`manual_prompt_attempt.py`](./example_prompt_optimization/manual_prompt_attempt.py).
 2. **Failure Mode Autopsy Across Categories**: Diagnose why fixing one category by hand (e.g., sarcasm or resolved false alarms) often breaks multi-intent recall or disputed vs. total monetary extraction.
 3. **The Power of Artifact Feedback (Blind Evolution vs. Textual Gradients)**: Run an A/B experiment comparing blind scalar evolution (`--no-artifacts`) against artifact-guided evolution where `category_accuracy_summary` and `failure_cases_report` provide exact field-level diffs to the mutator LLM.
