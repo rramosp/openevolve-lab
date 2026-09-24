@@ -1,8 +1,18 @@
-# OpenEvolve Lab
+# OpenEvolve Lab (with coding assistant)
 
 A hands-on lab for exploring LLM-guided evolutionary search with **OpenEvolve** (an open-source implementation of DeepMind's AlphaEvolve). You will learn how MAP-Elites, island populations, and evaluator feedback work together to evolve code and prompts automatically across tasks such as **function minimization**, **symbolic regression**, and **prompt optimization**.
 
+You will also use your coding assistant to help you understand and modify the code.
+
+We will guide you to do:
+
+- **symbolic regression**: Find the equation that models population growth and fits the data. This is one of the examples in the original [`openevolve` repo](https://github.com/algorithmicsuperintelligence/openevolve).
+
+$$\frac{dP}{dt} = p_0P + p_1P^2 + p_2tP + p_3t + p_4$$
+
 ![symbolic regression](imgs/symreg.png)
+
+- **prompt optimization**: Solve customer support ticket classification with an optimized prompt.
 
 ![prompt optimization](imgs/promptopt.png)
 
@@ -40,7 +50,7 @@ Clone the `openevolve` repository:
 git clone https://github.com/algorithmicsuperintelligence/openevolve.git
 ```
 
-Set `primary_model`, `secondary_model`, and `api_base` in `openevolve/examples/function_minimization/config.yaml` to `"openrouter/free"` and `"https://openrouter.ai/api/v1"` (or whichever model and endpoint you are using).
+Set `primary_model`, `secondary_model`, and `api_base` in `openevolve/examples/function_minimization/config.yaml` to the same values you used in variables `$MODEL` and `$OPENAI_COMPATIBLE_URL`.
 
 ### 1.3 Run Your First Evolution & Visualize Results
 
@@ -120,7 +130,7 @@ Or ask your coding assistant to analyze the run:
 
 ## 4. Modify `openevolve` to Log Token Usage
 
-Since `openevolve` does not log token usage by default, modify `openevolve` so that it logs prompt and completion token counts for every LLM call.
+Since `openevolve` does not log token usage by default it is difficult to estimate costs with an initial small run. Modify `openevolve` so that it logs prompt and completion token counts for every LLM call.
 
 You can ask your coding assistant:
 
